@@ -7,10 +7,10 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.StylistName)
-  @Html.TextBoxFor(model => model.StylistName)
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Stylist Name", required="required"})
   @Html.LabelFor(model => model.Specialty)
-  @Html.TextBoxFor(model => model.Specialty)
+  @Html.TextBoxFor(model => model.Specialty, new { @class = "form-control", placeholder = "Stylist Specialty", required="required"})
   <input type="submit" value="Add Stylist" required="required"/>
 }
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
