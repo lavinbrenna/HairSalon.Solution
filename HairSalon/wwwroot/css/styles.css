@@ -1,0 +1,21 @@
+body{
+  background-color: #767FA7;
+  color: white;
+  border: solid, white, 10px;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+container{
+  border: solid, white, 10px;
+}
+h1{
+  font-family: 'Sansita Swashed', cursive;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color: white; 
+
+}
