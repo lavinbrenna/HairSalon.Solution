@@ -35,7 +35,7 @@ _Using MySQL Workbench, Microsoft EntityFrameWorkCore, C# and ASP.NET MVCs this 
 
 ## Known Bugs
 
-* _No known bugs
+* 🐛 the option to delete a client doesn't redirect the user to a confirmation screen like it does when the user tries to delete a stylist
 
 ## License
 
