@@ -66,16 +66,12 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Search (string stylistName)
     {
-      var stylistList = _db.Stylists.AsQueryable();
-      var stylistId = stylistList.Single(stylist => stylist.Name == stylistName).StylistId;
-      Console.WriteLine(stylistId);
-      stylistList = stylistList.Where(stylist => stylist.StylistId == stylistId);
-      var search = stylistList.ToList();
-      if(stylistList.Any()){
-          return View("Index", search);
+      var thisStylist = _db.Stylists.FirstOrDefault(stylist => String.Equals(stylist.Name, stylistName));
+      if(thisStylist != null){
+          return RedirectToAction("Details","Stylists", new {id = thisStylist.StylistId});
       }
       else{
-        return View("SearchFail", "Stylists");
+        return View("SearchFail");
       }
       }
   }

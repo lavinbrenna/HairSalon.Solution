@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
-
+using System;
 namespace HairSalon.Controllers
 {
   public class ClientsController : Controller
@@ -72,16 +72,12 @@ namespace HairSalon.Controllers
         [HttpPost]
     public ActionResult Search (string clientName)
     {
-      var clientList = _db.Clients.AsQueryable();
-      clientList.FirstOrDefault();
-      var clientId = clientList.Single(client => client.Name == clientName).ClientId;
-      clientList = clientList.Where(client => client.ClientId == clientId);
-      var search = clientList.ToList();
-        if(clientList.Any()){
-        return View("Index", search);
+      var thisClient = _db.Clients.FirstOrDefault(client => String.Equals(client.Name, clientName));
+      if(thisClient != null){
+          return RedirectToAction("Details","Clients", new {id = thisClient.ClientId});
       }
       else{
-        return View("SearchFail", "Clients");
+        return View("SearchFail");
       }
     }
   }
