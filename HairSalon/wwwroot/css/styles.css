@@ -18,3 +18,7 @@ a{
   text-decoration: none;
   color: white; 
 }
+ul{
+  list-style-position: inside;
+  list-style-type: square;
+}
