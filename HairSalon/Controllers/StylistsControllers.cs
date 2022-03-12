@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -62,5 +63,20 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [HttpPost]
+    public ActionResult Search (string stylistName)
+    {
+      var stylistList = _db.Stylists.AsQueryable();
+      var stylistId = stylistList.Single(stylist => stylist.Name == stylistName).StylistId;
+      Console.WriteLine(stylistId);
+      stylistList = stylistList.Where(stylist => stylist.StylistId == stylistId);
+      var search = stylistList.ToList();
+      if(stylistList.Any()){
+          return View("Index", search);
+      }
+      else{
+        return View("SearchFail", "Stylists");
+      }
+      }
   }
 }

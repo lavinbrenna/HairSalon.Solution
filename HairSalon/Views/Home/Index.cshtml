@@ -3,5 +3,16 @@
 }
 <h1>Welcome to Eau Claire StyleBase</h1>
 <p>@Html.ActionLink("See all stylists", "Index", "Stylists")</p>
-
+@using(Html.BeginForm("Search", "Stylists", FormMethod.Post))
+{
+  <label>Search for Stylist</label>
+  @Html.TextBox("stylistName")
+  <input type="submit" value="Search">
+}
+@using(Html.BeginForm("Search", "Clients", FormMethod.Post))
+{
+  <label>Search for Client</label>
+  @Html.TextBox("clientName")
+  <input type="submit" value="Search">
+}
 
