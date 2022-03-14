@@ -20,5 +20,5 @@ Layout = "_Layout";
   
 }
 <p>@Html.ActionLink("Edit Stylist Information", "Edit", "Stylists", new{id = Model.StylistId})</p>
-<p>@Html.ActionLink("Delete Stylist", "Delete", "Stylists")</p>
+<p>@Html.ActionLink("Delete Stylist", "Delete", new{id = Model.StylistId})</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
